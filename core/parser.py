@@ -95,9 +95,9 @@ def parse_command(command_str):
     :param command_str: (str) command
     :return: tuple (str, str, str)
     """
-    dest = None
-    comp = None
-    jump = None
+    dest = "null"  # optional
+    comp = None  # required
+    jump = "null"  # optional
 
     if "=" in command_str:
         tmp = command_str.split("=")

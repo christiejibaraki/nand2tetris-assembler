@@ -51,6 +51,7 @@ class SymbolTable:
         :param symbol: (string) symbol
         :return: (int) address
         """
+        return self.__table[symbol]
 
     def add_label(self, symbol, address):
         """
