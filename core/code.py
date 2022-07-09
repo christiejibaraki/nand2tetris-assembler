@@ -17,11 +17,13 @@ DEST_CODES = {
     "null": "000",
     "M": "001",
     "D": "010",
-    "MD": "011",
+    "MD": "011", "DM": "011",
     "A": "100",
-    "AM": "101",
-    "AD": "110",
-    "AMD": "111"
+    "AM": "101", "MA": "101",
+    "AD": "110", "DA": "110",
+    "AMD": "111", "ADM": "111",
+    "MAD": "111", "MDA": "111",
+    "DAM": "111", "DMA": "111"
 }
 
 COMP_CODES = {
@@ -75,7 +77,7 @@ def translate_c_command(dest, comp, jump):
     ac_code = translate_comp(comp)
     d_code = translate_dest(dest)
     j_code = translate_jump(jump)
-    return ac_code + d_code + j_code
+    return "111" + ac_code + d_code + j_code
 
 
 def translate_dest(mnemonic):

@@ -2,7 +2,6 @@
 Utility functions
 """
 import re
-import copy
 
 REGEX_MULTI_COMMENT = re.compile(r"/\*.*?\*/", re.DOTALL)
 REGEX_SINGLE_COMMENT = re.compile(r"//.*?\n")

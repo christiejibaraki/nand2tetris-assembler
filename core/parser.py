@@ -88,6 +88,9 @@ class Parser:
     def get_symbol(self):
         return self.symbol
 
+    def get_dest_comp_jump(self):
+        return self.dest, self.comp, self.jump
+
 
 def parse_command(command_str):
     """
@@ -120,15 +123,10 @@ def clean_assembly_lang_prog_file(input_file_arg):
     :return: (str) cleaned assembly language program
     """
     try:
-        path, input_filename = os.path.split(os.path.realpath(input_file_arg))
+        _, input_filename = os.path.split(os.path.realpath(input_file_arg))
         _, extension = os.path.splitext(input_filename)
         if extension == ".asm":
-            print("Cleaning file: ", input_file_arg)
             clean_string = clean_code(read_file(input_file_arg))
-            # out_filename = input_filename.split(".in")[0] + ".out"
-            # out_file_path = os.path.join(path, out_filename)
-            # write_file(out_file_path, clean_string)
-            # print(f"Writing output file {out_filename} to {path}")
             return clean_string
         else:
             print(f"For file {input_filename}, expected extension .asm; actual extension: {extension}")
@@ -136,13 +134,3 @@ def clean_assembly_lang_prog_file(input_file_arg):
         print("Input file not found")
         print(e)
     return None
-
-
-parser = Parser("Fill.asm")
-parser.advance()
-print(parser.current_command)
-print(parser.current_command_type)
-print(parser.get_symbol())
-print(parser.dest)
-print(parser.comp)
-print(parser.jump)
