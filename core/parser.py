@@ -91,6 +91,23 @@ class Parser:
     def get_dest_comp_jump(self):
         return self.dest, self.comp, self.jump
 
+    def process_label(self, symbol_table):
+        if not self.current_command_type == Parser.L_COMMAND:
+            raise Exception(f"Expected command type {Parser.L_COMMAND} but actual type is {self.current_command_type}")
+        symbol_table.add_label(self.symbol, self.current_index)
+        self.commands.pop(self.current_index)
+        self.current_index -= 1
+        self.__reset_properties()
+
+    def reset_command_index(self):
+        self.current_index = None
+        self.current_command = None
+        self.current_command_type = None
+        self.symbol = None
+        self.dest = None
+        self.comp = None
+        self.jump = None
+
 
 def parse_command(command_str):
     """

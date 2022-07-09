@@ -86,7 +86,8 @@ class SymbolTable:
             raise KeyError(f"Entry {symbol} already exists at address {self.__table[symbol]}")
 
         if address in self.__inverted_table:
-            print(f"The following symbols also map to address {address}:\n{self.__inverted_table[address]}")
+            print(f"Adding {symbol} at address {address}")
+            print(f"-- The following symbols also map to address {address}: {self.__inverted_table[address]}")
 
         self.__table[symbol] = address
         self.__inverted_table[address] = self.__inverted_table.get(address, []) + [symbol]
