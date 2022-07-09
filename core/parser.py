@@ -7,7 +7,6 @@ Encapsulates access to the input code.
  - (Additionally removes all white space and comments).
 """
 
-import sys
 import os
 from core.utility import read_file, clean_code
 
@@ -25,6 +24,9 @@ class Parser:
         self.current_command = None
         self.current_command_type = None
         self.symbol = None
+        self.dest = None
+        self.comp = None
+        self.jump = None
 
     def has_more_commands(self):
         """
@@ -64,6 +66,7 @@ class Parser:
             self.symbol = self.current_command[1:-1]
         else:
             self.current_command_type = Parser.C_COMMAND
+            self.dest, self.comp, self.jump = parse_command(self.current_command)
 
     def __reset_properties(self):
         """
@@ -84,6 +87,29 @@ class Parser:
 
     def get_symbol(self):
         return self.symbol
+
+
+def parse_command(command_str):
+    """
+    Parse command string
+    :param command_str: (str) command
+    :return: tuple (str, str, str)
+    """
+    dest = None
+    comp = None
+    jump = None
+
+    if "=" in command_str:
+        tmp = command_str.split("=")
+        dest = tmp[0]
+        comp = tmp[1].split(";")[0]
+    else:
+        comp = command_str.split(";")[0]
+
+    if ";" in command_str:
+        jump = command_str.split(";")[1]
+
+    return dest, comp, jump
 
 
 def clean_assembly_lang_prog_file(input_file_arg):
@@ -117,3 +143,6 @@ parser.advance()
 print(parser.current_command)
 print(parser.current_command_type)
 print(parser.get_symbol())
+print(parser.dest)
+print(parser.comp)
+print(parser.jump)
