@@ -45,15 +45,15 @@ def clean_code(string):
     return clean_string.strip()
 
 
-def invert_dictionary(dict):
+def invert_dictionary(input_dict):
     """
     Invert dictionary.
     If multiple keys in original map to same value,
     store them as a list in inverted.
-    :param dict: input dict (string, int) to be inverted
+    :param input_dict: input dict (string, int) to be inverted
     :return: inverted dict (int, [string])
     """
     inverted = {}
-    for k, v in dict.items():
+    for k, v in input_dict.items():
         inverted[v] = inverted.get(v, []) + [k]
     return inverted

@@ -72,8 +72,8 @@ class SymbolTable:
             raise KeyError(f"Entry {symbol} already exists at address {self.__table[symbol]}")
 
         while self.__next_address in self.__inverted_table:
-            self.__next_address  += 1
-        return self.__add_entry(symbol, self.__next_address )
+            self.__next_address += 1
+        return self.__add_entry(symbol, self.__next_address)
 
     def __add_entry(self, symbol, address):
         """

@@ -86,12 +86,27 @@ class Parser:
         return self.current_command_type
 
     def get_symbol(self):
+        """
+        Get symbol for a_command
+        :return: (str) xxx in @xxx
+        """
         return self.symbol
 
     def get_dest_comp_jump(self):
+        """
+        Get components of c_command
+        :return: tuple (str, str, str)
+        """
         return self.dest, self.comp, self.jump
 
     def process_label(self, symbol_table):
+        """
+        Attempt to add current current command symbol as label in symbol table
+        if current type is not L_COMMAND raise exception
+        otherwise add to table and decrement current index. reset current command properties.
+        :param symbol_table: (SymbolTable)
+        :return: NA
+        """
         if not self.current_command_type == Parser.L_COMMAND:
             raise Exception(f"Expected command type {Parser.L_COMMAND} but actual type is {self.current_command_type}")
         symbol_table.add_label(self.symbol, self.current_index)
@@ -100,6 +115,10 @@ class Parser:
         self.__reset_properties()
 
     def reset_command_index(self):
+        """
+        Resent command index and related fileds
+        :return: NA
+        """
         self.current_index = None
         self.current_command = None
         self.current_command_type = None

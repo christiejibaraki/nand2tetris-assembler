@@ -52,7 +52,7 @@ def translate_a_command(address_value, symbol_table):
     """
     Translate address command to binary
     :param address_value: (str) xxx in @xxx
-    :param symbol_table: a symbol table
+    :param symbol_table: (SymbolTable) a symbol table
     :return: (str) binary address instruction
     """
     try:
