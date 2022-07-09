@@ -54,7 +54,7 @@ class SymbolTable:
 
     def add_label(self, symbol, address):
         """
-        Add label to self.__table
+        Add label to self.__table with corresponding address
         :param symbol: (string) label
         :param address: (int) address
         :return: (int) NA
