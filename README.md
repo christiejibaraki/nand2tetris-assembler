@@ -12,7 +12,7 @@ The machine code will be written to a file with the same filename and extension 
 ### To run the module:
 Specify the location of `main.py` and the input file, e.g.:
 
-`python3 nand2tetris-assembler/main.py <filename>.asm`
+`python3 IbarakiChristieProject6/main.py <filename>.asm`
 
 ### Known issues:
 None
