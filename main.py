@@ -4,10 +4,10 @@ Run assembler
 """
 import sys
 import os
-from core.symbol_table import SymbolTable
-from core.parser import Parser
-from core.code import translate_a_command, translate_c_command
-from core.utility import write_file
+from src.symbol_table import SymbolTable
+from src.parser import Parser
+from src.code import translate_a_command, translate_c_command
+from src.utility import write_file
 
 
 def translate_program(input_file):

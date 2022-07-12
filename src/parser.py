@@ -8,7 +8,7 @@ Encapsulates access to the input code.
 """
 
 import os
-from core.utility import read_file, clean_code
+from src.utility import read_file, clean_code
 
 
 class Parser:

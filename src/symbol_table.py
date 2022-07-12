@@ -2,7 +2,7 @@
 SymbolTable Module
 """
 import copy
-from core.utility import invert_dictionary
+from src.utility import invert_dictionary
 
 
 PREDEFINED = {

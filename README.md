@@ -1,7 +1,6 @@
 # nand2tetris-assembler
 ### Assembler, Week 4, Project 6
 
-
 The main module runs the assembler which translates assembly language to machine code.
 
 Input should be a file with extension `.asm`. 
